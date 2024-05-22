@@ -1,0 +1,8 @@
+# ApnaKlub Keka Attendance script
+
+because for some reason tech team also needs to do this now!??????
+
+
+
+node ./clockin.js for  clockin 
+node ./clockout.js for clockout 

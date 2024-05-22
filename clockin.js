@@ -4,7 +4,7 @@ const dotenv = require('dotenv').config()
 
 // used to setup headless vs non headless version
 // to see the code in action set this as true
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 // user creds loaded from env
 const user_email = process.env.user_email;
