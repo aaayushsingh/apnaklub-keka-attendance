@@ -1,0 +1,16 @@
+{
+  "name": "apnaklkub-keka-attendance",
+  "version": "1.0.0",
+  "description": "barebones setup for clockin and clockout",
+  "main": "clockin.js",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "puppeteer": "^22.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
