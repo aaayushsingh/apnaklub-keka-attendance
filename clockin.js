@@ -4,11 +4,11 @@ const dotenv = require('dotenv').config()
 
 // used to setup headless vs non headless version
 // to see the code in action set this as true
-const DEBUG_MODE = false;
+const DEBUG_MODE = process.env.DEBUG_MODE;
 
 // user creds loaded from env
-const user_email = process.env.user_email;
-const user_password = process.env.user_password;
+const user_email = process.env.USER_EMAIL;
+const user_password = process.env.USER_PASSWORD;
 
 (async () => {
     const browser = await puppeteer.launch({headless: !DEBUG_MODE});
@@ -204,6 +204,7 @@ const user_password = process.env.user_password;
         ])
             .setTimeout(timeout)
             .click({
+              delay: 50,
               offset: {
                 x: 56.78125,
                 y: 7,

@@ -194,7 +194,7 @@ const user_password = process.env.USER_PASSWORD;
         ])
             .setTimeout(timeout)
             .click({
-              delay: 50,
+              delay: 100,
               offset: {
                 x: 28.671875,
                 y: 21,
