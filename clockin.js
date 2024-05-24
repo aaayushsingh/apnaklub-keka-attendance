@@ -4,7 +4,7 @@ const dotenv = require('dotenv').config()
 
 // used to setup headless vs non headless version
 // to see the code in action set this as true
-const DEBUG_MODE = process.env.DEBUG_MODE;
+const DEBUG_MODE = process.env.DEBUG_MODE === 'true';
 
 // user creds loaded from env
 const user_email = process.env.USER_EMAIL;
@@ -105,22 +105,23 @@ const user_password = process.env.USER_PASSWORD;
             .setTimeout(timeout)
             .fill(user_password);
     }
-    {
-        const targetPage = page;
-        await puppeteer.Locator.race([
-            targetPage.locator('div.v8aRxf input'),
-            targetPage.locator('::-p-xpath(//*[@id=\\"yDmH0d\\"]/c-wiz/div/div[2]/div/div/div[1]/form/span/section[2]/div/div/div[1]/div[3]/div/div[1]/div/div/div[1]/div/div/input)'),
-            targetPage.locator(':scope >>> div.v8aRxf input'),
-            targetPage.locator('::-p-aria(Show password)')
-        ])
-            .setTimeout(timeout)
-            .click({
-              offset: {
-                x: 18,
-                y: 32.75,
-              },
-            });
-    }
+    // for some reason show password breaks in headless mode
+    // {
+    //     const targetPage = page;
+    //     await puppeteer.Locator.race([
+    //         targetPage.locator('div.v8aRxf input'),
+    //         targetPage.locator('::-p-xpath(//*[@id=\\"yDmH0d\\"]/c-wiz/div/div[2]/div/div/div[1]/form/span/section[2]/div/div/div[1]/div[3]/div/div[1]/div/div/div[1]/div/div/input)'),
+    //         targetPage.locator(':scope >>> div.v8aRxf input'),
+    //         targetPage.locator('::-p-aria(Show password)')
+    //     ])
+    //         .setTimeout(timeout)
+    //         .click({
+    //           offset: {
+    //             x: 18,
+    //             y: 32.75,
+    //           },
+    //         });
+    // }
     {
         const targetPage = page;
         const promises = [];
